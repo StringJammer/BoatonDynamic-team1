@@ -1,46 +1,46 @@
-# Photometric Stereo (光度立体视觉) 项目
+# Photometric Stereo Project
 
-> 基于5光源的光度立体视觉与深度重建系统
+> 5-Light Source Photometric Stereo and Depth Reconstruction System
 
-## 📖 项目简介
+## 📖 Project Introduction
 
-本项目实现了一个完整的光度立体视觉系统，通过分析物体在不同光照条件下的5张输入图像，重建物体的表面法向量、反照率图和深度图。系统支持多种材质物体的三维重建，包括石膏几何体和泡沫塑料物体。
+This project implements a complete photometric stereo system that reconstructs surface normal vectors, albedo maps, and depth maps of objects by analyzing 5 input images under different lighting conditions. The system supports 3D reconstruction of various material objects, including gypsum geometries and foam plastic objects.
 
-### 核心功能
+### Core Features
 
-- ✅ **表面法向量重建** - 从多幅图像计算每个像素的表面方向
-- ✅ **反照率图生成** - 提取物体的固有颜色/反射率
-- ✅ **深度图重建** - 使用 Frankot-Chellappa 或 Poisson 方法恢复3D形状
-- ✅ **多场景支持** - 支持不同材质和形状的物体
-- ✅ **高性能处理** - 多线程并行计算，支持大规模图像处理
+- ✅ **Surface Normal Reconstruction** - Calculate surface orientation for each pixel from multiple images
+- ✅ **Albedo Map Generation** - Extract intrinsic color/reflectance of objects
+- ✅ **Depth Map Reconstruction** - Recover 3D shape using Frankot-Chellappa or Poisson methods
+- ✅ **Multi-Scene Support** - Support objects with different materials and shapes
+- ✅ **High-Performance Processing** - Multi-threaded parallel computing for large-scale image processing
 
-## 🏗️ 项目结构
+## 🏗️ Project Structure
 
 ```
 images and code/
-├── photometric stereo(for 's' datasets).py  # 主程序
-├── readme.txt                                # 数据集说明
-├── images_s1/                                # S1 场景图像（石膏六面体）
-├── images_s2/                                # S2 场景图像（石膏圆锥）
-├── images_s3/                                # S3 场景图像（泡沫塑料苹果）
-├── results_s1/                               # S1 处理结果
-├── results_s2/                               # S2 处理结果
-└── results_s3/                               # S3 处理结果
+├── photometric stereo(for 's' datasets).py  # Main program
+├── readme.txt                                # Dataset description
+├── images_s1/                                # S1 scene images (Gypsum Hexahedron)
+├── images_s2/                                # S2 scene images (Gypsum Cone)
+├── images_s3/                                # S3 scene images (Foam Plastic Apple)
+├── results_s1/                               # S1 processing results
+├── results_s2/                               # S2 processing results
+└── results_s3/                               # S3 processing results
 ```
 
-## 📊 数据集说明
+## 📊 Dataset Description
 
-### 场景描述
+### Scene Description
 
-| 场景 | 物体材质 | 形状 |
-|------|---------|------|
-| S1 | 石膏 (Gypsum) | 六面体 (Hexahedron) |
-| S2 | 石膏 (Gypsum) | 圆锥 (Triangular Cone) |
-| S3 | 泡沫塑料 (Foamed Plastics) | 苹果 (Apple) |
+| Scene | Object Material | Shape |
+|-------|----------------|-------|
+| S1 | Gypsum | Hexahedron |
+| S2 | Gypsum | Triangular Cone |
+| S3 | Foamed Plastics | Apple |
 
-### 光源配置
+### Light Source Configuration
 
-5个光源的方向向量（归一化后）：
+Direction vectors of 5 light sources (normalized):
 
 ```
 l1: [-35.3,  35.3, 50]  →  [-0.500,  0.500, 0.707]
@@ -50,15 +50,15 @@ l4: [  0.0, -50.0, 50]  →  [ 0.000, -0.707, 0.707]
 l5: [-35.3, -35.3, 50]  →  [-0.500, -0.500, 0.707]
 ```
 
-### 相机参数
+### Camera Parameters
 
-- **镜头**：50mm
-- **光圈**：f/10
-- **位置**：[-60, 0, 25] cm
+- **Lens**: 50mm
+- **Aperture**: f/10
+- **Position**: [-60, 0, 25] cm
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 环境要求
+### Requirements
 
 ```bash
 numpy>=1.20.0
@@ -66,90 +66,90 @@ opencv-python>=4.5.0
 scipy>=1.7.0
 ```
 
-### 安装依赖
+### Install Dependencies
 
 ```bash
 pip install numpy opencv-python scipy
 ```
 
-### 运行程序
+### Run the Program
 
-编辑 `photometric stereo(for 's' datasets).py` 文件，修改配置参数：
+Edit the `photometric stereo(for 's' datasets).py` file and modify the configuration parameters:
 
 ```python
-SCENE_NAME = "s1"  # 选择场景: "s1", "s2" 或 "s3"
-SCALE_FACTOR = 0.25  # 图像缩放因子 (0-1)
+SCENE_NAME = "s1"  # Select scene: "s1", "s2" or "s3"
+SCALE_FACTOR = 0.25  # Image scaling factor (0-1)
 ```
 
-然后运行：
+Then run:
 
 ```python
 python "photometric stereo(for 's' datasets).py"
 ```
 
-## 📈 处理流程
+## 📈 Processing Pipeline
 
-### 1. 光度立体视觉 (Photometric Stereo)
-
-```
-5张输入图像 → 预处理 → 光照矩阵求解 → 法向量计算 → 反照率提取
-```
-
-**步骤详情：**
-- 图像加载与裁剪（去除边缘10%）
-- 图像缩放（默认25%）
-- 背景过滤（保留物体区域）
-- 多线程并行计算法向量和反照率
-
-### 2. 深度图重建 (Depth Reconstruction)
+### 1. Photometric Stereo
 
 ```
-法向量图 → 梯度计算 → 积分重建 → 深度归一化
+5 Input Images → Preprocessing → Light Matrix Solving → Normal Calculation → Albedo Extraction
 ```
 
-**支持方法：**
-- **Frankot-Chellappa 方法**：频域全局优化，速度快，精度高
-- **Poisson 方法**：时域迭代求解，可调整迭代次数
+**Step Details:**
+- Image loading and cropping (remove 10% edge borders)
+- Image scaling (default 25%)
+- Background filtering (preserve object region)
+- Multi-threaded parallel computation of normals and albedo
 
-## 📁 输出文件
+### 2. Depth Reconstruction
 
-每个场景处理后生成以下文件：
+```
+Normal Map → Gradient Calculation → Integration Reconstruction → Depth Normalization
+```
 
-### 可视化图像
+**Supported Methods:**
+- **Frankot-Chellappa Method**: Frequency domain global optimization, fast speed, high accuracy
+- **Poisson Method**: Time domain iterative solution, adjustable iteration count
 
-| 文件名 | 说明 |
-|--------|------|
-| `normal_map_s{N}.png` | 法向量图可视化 |
-| `albedo_map_s{N}.png` | 反照率图 |
-| `depth_map_s{N}_frankot_chellappa.png` | 深度图（Frankot-Chellappa方法） |
+## 📁 Output Files
 
-### 原始数据
+The following files are generated for each scene after processing:
 
-| 文件名 | 格式 | 说明 |
-|--------|------|------|
-| `normal_map_float_s{N}.npy` | NumPy | 法向量浮点数据 |
-| `albedo_map_float_s{N}.npy` | NumPy | 反照率浮点数据 |
-| `depth_raw_s{N}_frankot_chellappa.npy` | NumPy | 深度原始数据 |
-| `mask_valid_s{N}.npy` | NumPy | 有效区域掩码 |
-| `light_matrix_s{N}.txt` | 文本 | 光源方向矩阵 |
+### Visualization Images
 
-## 🔧 技术细节
+| Filename | Description |
+|----------|-------------|
+| `normal_map_s{N}.png` | Normal map visualization |
+| `albedo_map_s{N}.png` | Albedo map |
+| `depth_map_s{N}_frankot_chellappa.png` | Depth map (Frankot-Chellappa method) |
 
-### 光度立体视觉原理
+### Raw Data
 
-对于朗伯体表面，每个像素的亮度满足：
+| Filename | Format | Description |
+|----------|--------|-------------|
+| `normal_map_float_s{N}.npy` | NumPy | Normal vector float data |
+| `albedo_map_float_s{N}.npy` | NumPy | Albedo float data |
+| `depth_raw_s{N}_frankot_chellappa.npy` | NumPy | Raw depth data |
+| `mask_valid_s{N}.npy` | NumPy | Valid region mask |
+| `light_matrix_s{N}.txt` | Text | Light direction matrix |
+
+## 🔧 Technical Details
+
+### Photometric Stereo Principle
+
+For Lambertian surfaces, the brightness of each pixel satisfies:
 
 ```
 I = ρ · (n · L)
 ```
 
-其中：
-- `I` - 观测强度
-- `ρ` - 反照率（表面反射率）
-- `n` - 单位表面法向量
-- `L` - 单位光源方向向量
+Where:
+- `I` - Observed intensity
+- `ρ` - Albedo (surface reflectance)
+- `n` - Unit surface normal vector
+- `L` - Unit light direction vector
 
-对于5个光源，可以建立线性方程组：
+For 5 light sources, a system of linear equations can be established:
 
 ```
 I₁ = ρ · (n · L₁)
@@ -159,93 +159,93 @@ I₄ = ρ · (n · L₄)
 I₅ = ρ · (n · L₅)
 ```
 
-通过最小二乘法求解可得法向量和反照率。
+The normal vector and albedo can be obtained through least squares solution.
 
-### 深度重建方法
+### Depth Reconstruction Methods
 
-#### Frankot-Chellappa 方法
+#### Frankot-Chellappa Method
 
-在频域求解泊松方程：
+Solving Poisson equation in frequency domain:
 
 ```
 ∇²Z = ∇ · (-nₓ/nz, -nᵧ/nz)
 ```
 
-优点：全局最优解，计算速度快
+Advantages: Global optimal solution, fast computation speed
 
-#### Poisson 方法
+#### Poisson Method
 
-时域迭代求解：
+Iterative solution in time domain:
 
 ```
 Z[i,j] = (Z[i-1,j] + Z[i+1,j] + Z[i,j-1] + Z[i,j+1] - div[i,j]) / 4
 ```
 
-优点：灵活性高，可控制迭代精度
+Advantages: High flexibility, controllable iteration precision
 
-## 📊 性能优化
+## 📊 Performance Optimization
 
-- **多线程处理**：使用 `ThreadPoolExecutor` 并行计算像素
-- **块处理**：避免大图像内存溢出
-- **进度显示**：实时显示处理进度
-- **背景过滤**：减少无效计算
+- **Multi-threaded Processing**: Use `ThreadPoolExecutor` for parallel pixel computation
+- **Block Processing**: Avoid memory overflow for large images
+- **Progress Display**: Real-time processing progress feedback
+- **Background Filtering**: Reduce invalid computations
 
-## 🎯 示例结果
+## 🎯 Example Results
 
-### S1 - 石膏六面体
+### S1 - Gypsum Hexahedron
 
-**法向量图**
+**Normal Map**
 <img src="images and code/results_s1/normal_map_s1.png" width="100%" />
 
-**反照率图**
+**Albedo Map**
 <img src="images and code/results_s1/albedo_map_s1.png" width="100%" />
 
-**深度图**
+**Depth Map**
 <img src="images and code/results_s1/depth_map_s1_frankot_chellappa.png" width="100%" />
 
-### S2 - 石膏圆锥
+### S2 - Gypsum Cone
 
-**法向量图**
+**Normal Map**
 <img src="images and code/results_s2/normal_map_s2.png" width="100%" />
 
-**反照率图**
+**Albedo Map**
 <img src="images and code/results_s2/albedo_map_s2.png" width="100%" />
 
-**深度图**
+**Depth Map**
 <img src="images and code/results_s2/depth_map_s2_frankot_chellappa.png" width="100%" />
 
-### S3 - 泡沫塑料苹果
+### S3 - Foam Plastic Apple
 
-**法向量图**
+**Normal Map**
 <img src="images and code/results_s3/normal_map_s3.png" width="100%" />
 
-**反照率图**
+**Albedo Map**
 <img src="images and code/results_s3/albedo_map_s3.png" width="100%" />
 
-**深度图**
+**Depth Map**
 <img src="images and code/results_s3/depth_map_s3_frankot_chellappa.png" width="100%" />
 
-## 📝 注意事项
+## 📝 Notes
 
-1. **图像要求**：确保输入图像命名格式为 `img1.jpg` 到 `img5.jpg`
-2. **内存管理**：处理大图像时适当调整 `SCALE_FACTOR`
-3. **背景过滤**：程序会自动过滤背景，但确保物体与背景有明显对比
-4. **光源方向**：修改光源矩阵需确保向量正确归一化
+1. **Image Requirements**: Ensure input images are named in the format `img1.jpg` to `img5.jpg`
+2. **Memory Management**: Adjust `SCALE_FACTOR` appropriately when processing large images
+3. **Background Filtering**: The program automatically filters background, but ensure clear contrast between object and background
+4. **Light Direction**: Ensure vectors are correctly normalized when modifying the light matrix
 
-## 🤝 贡献
+## 🤝 Contributing
 
-欢迎提交 Issue 和 Pull Request！
+Issues and Pull Requests are welcome!
 
-## 📄 许可证
+## 📄 License
 
-本项目仅用于学习和研究目的。
+This project is for learning and research purposes only.
 
-## 🔗 参考文献
+## 🔗 References
 
 - Woodham, R. J. (1980). "Photometric method for determining surface orientation from multiple images."
 - Frankot, R. T., & Chellappa, R. (1988). "A method for enforcing integrability in shape from shading algorithms."
 
 ---
 
-**作者**: JulianZhu  
-**邮箱**: 1141911921@qq.com
+**Author**: JulianZhu  
+**Email**: 1141911921@qq.com
