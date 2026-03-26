@@ -1,0 +1,20 @@
+{
+  "scene_name": "s1",
+  "key_metrics": {
+    "valid_pixel_ratio": 1.0,
+    "num_points": 162102,
+    "valid_normals_ratio": 1.0,
+    "depth_mean": 1.0239857708203586,
+    "depth_std": 0.10183911107988942,
+    "uniformity_index": 0.7720775523362438,
+    "laplacian_mean": 0.0023811518080367744
+  },
+  "component_scores": {
+    "completeness": 25.0,
+    "normal_quality": 25.0,
+    "point_cloud": 2.521843299273657,
+    "smoothness": 17.85654457588968
+  },
+  "total_score": 70.37838787516333,
+  "grade": "Fair"
+}

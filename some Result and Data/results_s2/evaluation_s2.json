@@ -1,0 +1,20 @@
+{
+  "scene_name": "s2",
+  "key_metrics": {
+    "valid_pixel_ratio": 1.0,
+    "num_points": 100034,
+    "valid_normals_ratio": 1.0,
+    "depth_mean": 1.0202535219723592,
+    "depth_std": 0.03461840666243369,
+    "uniformity_index": 0.2618525800617291,
+    "laplacian_mean": 3.622673156783072e-05
+  },
+  "component_scores": {
+    "completeness": 25.0,
+    "normal_quality": 25.0,
+    "point_cloud": 12.331855492639734,
+    "smoothness": 24.891319805296508
+  },
+  "total_score": 87.22317529793624,
+  "grade": "Good"
+}

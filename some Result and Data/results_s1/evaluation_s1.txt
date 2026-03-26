@@ -1,0 +1,43 @@
+============================================================
+Photometric Stereo 3D Reconstruction Evaluation Report
+============================================================
+
+Scene: s1
+
+1. OVERALL RESULTS
+----------------------------------------
+Total Score: 70.4/100
+Grade: Fair
+
+2. KEY METRICS
+----------------------------------------
+2.1 Geometric Completeness
+Valid Pixel Ratio: 100.00%
+Mean Depth: 1.023986
+Depth Std Dev: 0.101839
+
+2.2 Normal Vector Quality
+Valid Normals Ratio: 100.00%
+
+2.3 Point Cloud Quality
+Number of Points: 162,102
+Uniformity Index: 0.772078 (smaller is better)
+
+2.4 Algorithm Stability
+Depth Smoothness: 0.002381 (smaller is better)
+
+3. COMPONENT SCORES (0-25 points each)
+----------------------------------------
+Completeness Score: 25.0
+Normal Quality Score: 25.0
+Point Cloud Score: 2.5
+Smoothness Score: 17.9
+
+4. RECOMMENDATIONS
+----------------------------------------
+Reconstruction quality is fair. Room for improvement.
+Optimize lighting conditions and camera parameters.
+
+============================================================
+End of Report
+============================================================

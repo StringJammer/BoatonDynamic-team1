@@ -1,0 +1,20 @@
+{
+  "scene_name": "Fish",
+  "key_metrics": {
+    "valid_pixel_ratio": 1.0,
+    "num_points": 257494,
+    "valid_normals_ratio": 0.9998291222319743,
+    "depth_mean": 0.9597815807641393,
+    "depth_std": 0.03654132451414297,
+    "uniformity_index": 0.40894168664790126,
+    "laplacian_mean": 0.00010362234375785572
+  },
+  "component_scores": {
+    "completeness": 25.0,
+    "normal_quality": 24.995728055799358,
+    "point_cloud": 9.820358906168202,
+    "smoothness": 24.689132968726433
+  },
+  "total_score": 84.505219930694,
+  "grade": "Good"
+}

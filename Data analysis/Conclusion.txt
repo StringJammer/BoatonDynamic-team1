@@ -1,0 +1,18 @@
+I. Overall Evaluation Foundation
+The valid pixel ratio of all test scenes reached 100%, with no invalid data at the basic pixel level, laying a complete pixel foundation for the evaluation of depth, normal vector, point cloud and other indicators.
+II. Scene Rating Distribution
+A total of 31 scenes were tested in this evaluation, rated into three grades: Excellent, Good and Fair. There were no unqualified scenes, reflecting an overall good performance:
+Excellent: 14 scenes in total, including Bagua-R/T, Cloud-R/T, Lion-R/T, Panda-R/T, Queen, Rhino, Sail, Sun, Taichi, Wave and Whale;
+Good: 15 scenes in total, including Astro, Bear, Bird, Fish, Flower, Lions, Lotus-R/T, Lung, Ocean, Ship, Tree, TV and s2;
+Fair: Only 2 scenes, namely Para and s1, which were the relatively weak scenes in this evaluation.
+III. Key Characteristics of Core Indicators
+Full-score Indicators: The Completeness Score and Normal Quality Score of all scenes both hit the full mark of 25.0, indicating a perfect performance in scene integrity restoration and normal vector accuracy with no score deduction;
+Smoothness Score: The Smoothness Score of Excellent/Good scenes was basically close to the full mark of 25.0, while only that of Para (19.0) and s1 (17.9) was significantly low, dragging down the overall total score;
+Point Cloud Score: As one of the core indicators leading to the performance gap among scenes, the Point Cloud Score of Excellent scenes was mostly 15.0 and above (the highest was 17.8 for Queen), that of Good scenes ranged from 9.8 to 14.3, and that of Fair scenes was only 4.8 (Para) and 2.5 (s1). Point cloud quality was the main reason for the low rating of Para and s1;
+Auxiliary Indicators: Excellent scenes featured a smaller depth standard deviation (mostly 0.01 and below), a lower uniformity index and a smaller depth smoothness value, indicating more stable depth data, better uniformity and higher depth smoothness. In contrast, Para and s1 had the highest depth standard deviation (0.089/0.102), uniformity index (0.712/0.772) and depth smoothness (0.0018/0.0024) among all scenes, showing poor stability and uniformity of depth data.
+IV. Total Score Performance
+The total score of all Excellent scenes was 90.0 and above, with Queen ranking first with a total score of 92.8 in this evaluation;
+The total score of Good scenes ranged from 79.4 to 89.3, with no obvious low-score range;
+The total score of Fair scenes was significantly low, with Para at 73.8 and s1 at 70.4, which were the two lowest-score scenes in this evaluation.
+V. Core Conclusions
+The 3D system evaluated in this test delivered an outstanding performance (full marks in all aspects) in pixel validity, scene integrity and normal vector quality, and the Excellent scenes achieved high standards in depth stability, point cloud quality and smoothness. The overall weak points were concentrated in two scenes (Para and s1), whose low rating and total score were mainly caused by poor point cloud quality, insufficient depth data stability and low smoothness. All other scenes maintained a performance of Good or above, demonstrating the system's strong overall restoration capability.

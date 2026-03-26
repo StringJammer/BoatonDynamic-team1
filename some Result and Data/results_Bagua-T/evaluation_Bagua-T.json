@@ -1,0 +1,20 @@
+{
+  "scene_name": "Bagua-T",
+  "key_metrics": {
+    "valid_pixel_ratio": 1.0,
+    "num_points": 358548,
+    "valid_normals_ratio": 0.999676472885081,
+    "depth_mean": 0.9960561653332305,
+    "depth_std": 0.008068923240276077,
+    "uniformity_index": 0.128314418517549,
+    "laplacian_mean": 1.0031446391230554e-05
+  },
+  "component_scores": {
+    "completeness": 25.0,
+    "normal_quality": 24.991911822127026,
+    "point_cloud": 15.433697452324866,
+    "smoothness": 24.96990566082631
+  },
+  "total_score": 90.3955149352782,
+  "grade": "Excellent"
+}

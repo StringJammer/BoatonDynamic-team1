@@ -1,0 +1,43 @@
+============================================================
+Photometric Stereo 3D Reconstruction Evaluation Report
+============================================================
+
+Scene: Fish
+
+1. OVERALL RESULTS
+----------------------------------------
+Total Score: 84.5/100
+Grade: Good
+
+2. KEY METRICS
+----------------------------------------
+2.1 Geometric Completeness
+Valid Pixel Ratio: 100.00%
+Mean Depth: 0.959782
+Depth Std Dev: 0.036541
+
+2.2 Normal Vector Quality
+Valid Normals Ratio: 99.98%
+
+2.3 Point Cloud Quality
+Number of Points: 257,494
+Uniformity Index: 0.408942 (smaller is better)
+
+2.4 Algorithm Stability
+Depth Smoothness: 0.000104 (smaller is better)
+
+3. COMPONENT SCORES (0-25 points each)
+----------------------------------------
+Completeness Score: 25.0
+Normal Quality Score: 25.0
+Point Cloud Score: 9.8
+Smoothness Score: 24.7
+
+4. RECOMMENDATIONS
+----------------------------------------
+Reconstruction quality is good. Suitable for most applications.
+Point distribution could be more uniform.
+
+============================================================
+End of Report
+============================================================

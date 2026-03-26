@@ -1,0 +1,1 @@
+We selected the DiLiGenT-Pi dataset for data testing. For each object, we used images 001–005, along with the corresponding mask images and light direction matrices. We provide images of ten objects here to facilitate experimental reproduction.

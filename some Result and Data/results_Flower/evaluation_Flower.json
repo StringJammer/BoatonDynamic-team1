@@ -1,0 +1,20 @@
+{
+  "scene_name": "Flower",
+  "key_metrics": {
+    "valid_pixel_ratio": 1.0,
+    "num_points": 425484,
+    "valid_normals_ratio": 0.9998213798873753,
+    "depth_mean": 0.9503891410054611,
+    "depth_std": 0.03863575623782235,
+    "uniformity_index": 0.3382343884810423,
+    "laplacian_mean": 5.765282604624188e-05
+  },
+  "component_scores": {
+    "completeness": 25.0,
+    "normal_quality": 24.995534497184384,
+    "point_cloud": 11.235311255844941,
+    "smoothness": 24.827041521861275
+  },
+  "total_score": 86.05788727489059,
+  "grade": "Good"
+}

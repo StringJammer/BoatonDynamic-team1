@@ -1,0 +1,130 @@
+Photometric Stereo Reconstruction Evaluation Standards
+
+Overview
+
+This document outlines the quantitative evaluation standards for photometric stereo 3D reconstruction quality assessment. The evaluation system uses four primary metrics, each scored on a 0-25 point scale, for a total possible score of 100 points.
+
+Evaluation Metrics
+
+1. Geometric Completeness (0-25 points)
+
+Description: Measures the coverage of the reconstruction within the object mask region.
+
+Formula: 
+
+Score = Valid Pixel Ratio × 25
+Valid Pixel Ratio = Valid Depth Pixels / Total Masked Pixels
+
+
+Interpretation:
+• Higher values indicate more complete surface reconstruction
+
+• 100% means every pixel in the object mask has a valid depth value
+
+• Lower values indicate holes or missing data in the reconstruction
+
+2. Normal Vector Quality (0-25 points)
+
+Description: Assesses the correctness of surface normal estimation.
+
+Formula:
+
+Score = Valid Normals Ratio × 25
+Valid Normals Ratio = Normals with magnitude 0.9-1.1 / Total Normals
+
+
+Interpretation:
+• Measures how well-estimated normals are unit vectors (ideal magnitude = 1.0)
+
+• Values between 0.9-1.1 are considered valid
+
+• High scores indicate accurate normal estimation
+
+3. Point Cloud Quality (0-25 points)
+
+Description: Evaluates both point cloud quantity and distribution uniformity.
+
+Formula:
+
+Base Score = tanh(Number of Points / 50000) × 12
+Uniformity Adjustment = (0.3 - Uniformity Index) × 20
+Total Score = Base Score + Uniformity Adjustment (clipped to 0-25)
+
+
+Uniformity Index: Standard deviation of nearest neighbor distances divided by mean distance
+
+Interpretation:
+• Rewards both high point count and uniform point distribution
+
+• Lower Uniformity Index values indicate more regular point spacing
+
+• tanh function ensures diminishing returns for extremely high point counts
+
+4. Algorithm Stability (0-25 points)
+
+Description: Measures the smoothness and continuity of the reconstructed surface.
+
+Formula:
+
+Score = max(0, 25 - Laplacian Mean × 3000)
+Laplacian Mean = average absolute value of depth map Laplacian
+
+
+Interpretation:
+• Lower Laplacian values indicate smoother surfaces
+
+• High scores suggest stable reconstruction with minimal noise
+
+• Penalizes noisy or discontinuous depth maps
+
+Scoring and Grading
+
+Total Score Calculation
+
+
+Total Score = Completeness Score + Normal Quality Score + Point Cloud Score + Smoothness Score
+
+
+Grading Scale
+
+Score Range Grade Description
+
+90-100 Excellent Reconstruction suitable for high-precision applications
+
+80-89 Good Reconstruction suitable for most applications
+
+70-79 Fair Reconstruction with room for improvement
+
+60-69 Pass Minimally acceptable reconstruction
+
+<60 Poor Reconstruction requires significant improvements
+
+Key Output Files
+
+Each reconstruction generates two evaluation files in the results directory:
+
+1. evaluation_{scene_name}.txt: Human-readable report with all metrics and scores
+2. evaluation_{scene_name}.json: Machine-readable data for programmatic analysis
+
+Usage Notes
+
+• Scores are designed to be strict; perfect scores (100/100) are extremely rare
+
+• The system enables quantitative comparison between different scenes or algorithms
+
+• All metrics are computed without requiring ground truth data
+
+• Recommendations are provided based on the total score and specific metric weaknesses
+
+Example Interpretation
+
+A reconstruction scoring 85/100 (Grade: Good) with:
+• Completeness: 92% (23/25 points)
+
+• Normal Quality: 88% (22/25 points) 
+
+• Point Cloud: 20/25 points
+
+• Smoothness: 20/25 points
+
+Would be interpreted as: Good quality reconstruction with slightly incomplete coverage and room for improvement in normal estimation accuracy.

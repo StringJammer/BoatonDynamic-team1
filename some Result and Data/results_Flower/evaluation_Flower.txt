@@ -1,0 +1,42 @@
+============================================================
+Photometric Stereo 3D Reconstruction Evaluation Report
+============================================================
+
+Scene: Flower
+
+1. OVERALL RESULTS
+----------------------------------------
+Total Score: 86.1/100
+Grade: Good
+
+2. KEY METRICS
+----------------------------------------
+2.1 Geometric Completeness
+Valid Pixel Ratio: 100.00%
+Mean Depth: 0.950389
+Depth Std Dev: 0.038636
+
+2.2 Normal Vector Quality
+Valid Normals Ratio: 99.98%
+
+2.3 Point Cloud Quality
+Number of Points: 425,484
+Uniformity Index: 0.338234 (smaller is better)
+
+2.4 Algorithm Stability
+Depth Smoothness: 0.000058 (smaller is better)
+
+3. COMPONENT SCORES (0-25 points each)
+----------------------------------------
+Completeness Score: 25.0
+Normal Quality Score: 25.0
+Point Cloud Score: 11.2
+Smoothness Score: 24.8
+
+4. RECOMMENDATIONS
+----------------------------------------
+Reconstruction quality is good. Suitable for most applications.
+
+============================================================
+End of Report
+============================================================

@@ -1,0 +1,42 @@
+============================================================
+Photometric Stereo 3D Reconstruction Evaluation Report
+============================================================
+
+Scene: Bagua-R
+
+1. OVERALL RESULTS
+----------------------------------------
+Total Score: 90.3/100
+Grade: Excellent
+
+2. KEY METRICS
+----------------------------------------
+2.1 Geometric Completeness
+Valid Pixel Ratio: 100.00%
+Mean Depth: 0.995758
+Depth Std Dev: 0.007658
+
+2.2 Normal Vector Quality
+Valid Normals Ratio: 99.97%
+
+2.3 Point Cloud Quality
+Number of Points: 355,503
+Uniformity Index: 0.130254 (smaller is better)
+
+2.4 Algorithm Stability
+Depth Smoothness: 0.000017 (smaller is better)
+
+3. COMPONENT SCORES (0-25 points each)
+----------------------------------------
+Completeness Score: 25.0
+Normal Quality Score: 25.0
+Point Cloud Score: 15.4
+Smoothness Score: 25.0
+
+4. RECOMMENDATIONS
+----------------------------------------
+Reconstruction quality is excellent. The result is suitable for high-precision applications.
+
+============================================================
+End of Report
+============================================================

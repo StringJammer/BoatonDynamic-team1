@@ -1,0 +1,20 @@
+{
+  "scene_name": "Bird",
+  "key_metrics": {
+    "valid_pixel_ratio": 1.0,
+    "num_points": 476628,
+    "valid_normals_ratio": 0.9998321542167057,
+    "depth_mean": 0.9689882831526285,
+    "depth_std": 0.043332761678535205,
+    "uniformity_index": 0.2978498138458216,
+    "laplacian_mean": 7.378713532030267e-05
+  },
+  "component_scores": {
+    "completeness": 25.0,
+    "normal_quality": 24.99580385541764,
+    "point_cloud": 12.043003597093932,
+    "smoothness": 24.77863859403909
+  },
+  "total_score": 86.81744604655067,
+  "grade": "Good"
+}
